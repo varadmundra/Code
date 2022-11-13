@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+
+<html>
+
+<head>
+    <title>Web3 Metamask Login</title>
+    <link rel="stylesheet" href="index.css">
+
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="flex w-screen h-screen justify-center items-center">
+    <div class="flex-col space-y-2 justify-center items-center">
+        <h1> Welcome to Meta-Plex!</h1>
+
+        <button id='loginButton' onclick="" class="mx-auto rounded-md p-2 bg-purple-500 text-white">
+            Enter the Meta-Plex
+        </button>
+        <p id='userWallet' class='text-lg text-gray-600 my-2'></p>
+    </div>
+
+    <script>
+        window.userWalletAddress = null
+        const loginButton = document.getElementById('loginButton')
+        const userWallet = document.getElementById('userWallet')
+
+        function toggleButton() {
+            if (!window.ethereum) {
+                loginButton.innerText = 'MetaMask is not installed'
+                loginButton.classList.remove('bg-purple-500', 'text-white')
+                loginButton.classList.add('bg-gray-500', 'text-gray-100', 'cursor-not-allowed')
+                return false
+            }
+
+            loginButton.addEventListener('click', loginWithMetaMask)
+        }
+
+        async function loginWithMetaMask() {
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
+                .catch((e) => {
+                    console.error(e.message)
+                    return
+                })
+            if (!accounts) { return }
+
+            window.userWalletAddress = accounts[0]
+            userWallet.innerText = window.userWalletAddress
+            loginButton.innerText = 'Sign out of MetaMask'
+
+            loginButton.removeEventListener('click', loginWithMetaMask)
+            setTimeout(() => {
+                loginButton.addEventListener('click', signOutOfMetaMask)
+            }, 200)
+        }
+
+        function signOutOfMetaMask() {
+            window.userWalletAddress = null
+            userWallet.innerText = ''
+            loginButton.innerText = 'Sign in with MetaMask'
+
+            loginButton.removeEventListener('click', signOutOfMetaMask)
+            setTimeout(() => {
+                loginButton.addEventListener('click', loginWithMetaMask)
+            }, 200)
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            toggleButton()
+        });
+    </script>
+    <script src="loader.js"></script>
+    <script src="index.js"></script>
+
+</body>
+
+</html>
+
+<!-- 
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="index.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <div class="full" style="text-align:center">
+        <div class="title">
+            <center>
+                <p class="tt" style="margin-top:70px ;">
+                    <b>
+                        <h1> Welcome to MetaVerse!</h1>
+                    </b>
+                </p>
+            </center>
+
+        </div>
+
+        <div id="bottom" title="404">
+            Enter the stadium
+            <span>&#10145;
+            </span>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html> -->
