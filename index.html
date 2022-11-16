@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 
 <html>
 
@@ -8,15 +8,69 @@
     <link rel="stylesheet" href="index.css">
 
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+  html {
+    background-image: url("assets/stad1.jpeg");
+    opacity: 0.5;
+
+  }
+
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; 
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
 </head>
 
 <body class="flex w-screen h-screen justify-center items-center">
-    <div class="flex-col space-y-2 justify-center items-center">
-        <h1> Welcome to Meta-Plex!</h1>
+    <div class="flex-col space-y-2 justify-center items-center full">
 
-        <button id='loginButton' onclick="" class="mx-auto rounded-md p-2 bg-purple-500 text-white">
-            Enter the Meta-Plex
+        <button id='loginButton top'>
+          <div class="waviy">
+            <span style="--i:1">C</span>
+            <span style="--i:2">O</span>
+            <span style="--i:3">N</span>
+            <span style="--i:4">N</span>
+            <span style="--i:5">E</span>
+            <span style="--i:6">C</span>
+            <span style="--i:7">T</span>
+            <span style="--i:8"> </span>
+            <span style="--i:9">W</span>
+            <span style="--i:10">I</span>
+            <span style="--i:11">T</span>
+            <span style="--i:12">H</span>
+            <span style="--i:13"> </span>
+            <span style="--i:14">U</span>
+            <span style="--i:15">S</span>
+           </div>
         </button>
+        <div class="row">
+        <div class="column">
+          <h2>Avtar</h2>
+        </div>
+        <div class="column line">
+          <center>
+            <p>
+                <b>
+                    <h1 class="lineUp"> Welcome to MetaVerse!</h1>
+                </b>
+            </p>
+        </center>
+        </div>
+      </div>
+
         <p id='userWallet' class='text-lg text-gray-600 my-2'></p>
     </div>
 
@@ -28,8 +82,8 @@
         function toggleButton() {
             if (!window.ethereum) {
                 loginButton.innerText = 'MetaMask is not installed'
-                loginButton.classList.remove('bg-purple-500', 'text-white')
-                loginButton.classList.add('bg-gray-500', 'text-gray-100', 'cursor-not-allowed')
+                //loginButton.classList.remove('bg-purple-500', 'text-white')
+                //loginButton.classList.add('bg-gray-500', 'text-gray-100', 'cursor-not-allowed')
                 return false
             }
 
@@ -76,42 +130,3 @@
 </body>
 
 </html>
-
-<!-- 
-
-<!DOCTYPE html>
-<html>
-
-<head>
-    <link rel="stylesheet" href="index.css">
-    <style>
-
-    </style>
-</head>
-
-<body>
-
-    <div class="full" style="text-align:center">
-        <div class="title">
-            <center>
-                <p class="tt" style="margin-top:70px ;">
-                    <b>
-                        <h1> Welcome to MetaVerse!</h1>
-                    </b>
-                </p>
-            </center>
-
-        </div>
-
-        <div id="bottom" title="404">
-            Enter the stadium
-            <span>&#10145;
-            </span>
-        </div>
-    </div>
-
-
-
-</body>
-
-</html> -->
