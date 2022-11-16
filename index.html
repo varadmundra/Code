@@ -18,12 +18,18 @@
             Enter the Meta-Plex
         </button>
         <p id='userWallet' class='text-lg text-gray-600 my-2'></p>
+        <!-- <p id='balance' class='text-lg text-gray-600 my-2'></p> -->
+        <button onclick="checkBalance()">check</button>
+
     </div>
 
     <script>
         window.userWalletAddress = null
         const loginButton = document.getElementById('loginButton')
+
         const userWallet = document.getElementById('userWallet')
+        var balance = document.getElementById('balance')
+
 
         function toggleButton() {
             if (!window.ethereum) {
@@ -37,7 +43,7 @@
         }
 
         async function loginWithMetaMask() {
-            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
+            var accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
                 .catch((e) => {
                     console.error(e.message)
                     return
@@ -71,6 +77,8 @@
     </script>
     <script src="index.js"></script>
     <script src="loader.js"></script>
+    <script src="tokens.js"></script>
+
 
 
 </body>
