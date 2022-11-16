@@ -1,97 +1,3 @@
-html,
-body {
-  height: 50%;
-  margin: 0;
-  color: #fff;
-}
-
-.full {
-  width: 100%;
-  height: 100%;
-  background-color: #191919;
-  animation-name: example;
-  animation-duration: 4s;
-}
-
-@keyframes example {
-  from {
-    background-color: #4c4c4c;
-  }
-
-  to {
-    background-color: #191919;
-  }
-}
-
-div.full {
-  padding: auto;
-  color: #fff;
-  text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.62);
-  position: absolute;
-  text-align: center;
-}
-
-#bottom {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  font-size: 24px;
-  margin-bottom: 20px;
-  margin-right: 20px;
-}
-
-
-
-@import url('https://fonts.googleapis.com/css?family=Cairo');
-
-body {
-  background-color: #010;
-}
-
-.title {
-  font-family: "Cairo";
-  text-align: center;
-  color: #FFF;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  letter-spacing: 1px;
-  line-height: 2
-}
-
-h1 {
-  background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
-  background-size: cover;
-  color: transparent;
-  /* -moz-background-clip: text; */
-  /* -webkit-background-clip: text; */
-  text-transform: uppercase;
-  font-size: 70px;
-  margin: 10px 0;
-}
-
-/* styling my button */
-
-.white-mode {
-  text-decoration: none;
-  padding: 7px 10px;
-  background-color: rgb(7, 11, 11);
-  border-radius: 3px;
-  color: #FFF;
-  transition: .35s ease-in-out;
-  position: absolute;
-  left: 15px;
-  bottom: 15px;
-  font-family: "Montserrat";
-}
-
-.white-mode:hover {
-  background-color: #FFF;
-  color: #122;
-}
-
 
 
 @import url('https://fonts.googleapis.com/css?family=Fira+Mono:400');
@@ -103,33 +9,18 @@ body {
   align-items: center;
   justify-content: center;
   margin: 0;
-  background: #131313;
-  color: #fff;
+  color: #131313;
   font-size: 96px;
   font-family: 'Fira Mono', monospace;
   letter-spacing: -1px;
+ 
 }
+
 
 div {
   animation: glitch 1s linear infinite;
 }
 
-/* @keyframes glitch {
-
-  2%,
-  64% {
-    transform: translate(2px, 0) skew(0deg);
-  }
-
-  4%,
-  60% {
-    transform: translate(-2px, 0) skew(0deg);
-  }
-
-  62% {
-    transform: translate(0, 0) skew(5deg);
-  }
-} */
 
 div:before,
 div:after {
@@ -181,5 +72,84 @@ div:after {
 
   62% {
     transform: translate(-22px, 5px) skew(21deg);
+  }
+}
+
+
+.line {
+  width: 100%;
+  height: 4rem;
+  overflow: hidden;
+  padding: 0;
+  margin-bottom: 16px;
+  font-size: 70px;
+  font-weight: bolder;
+}
+
+.lineUp {
+  animation: 2s anim-lineUp ease-out ;
+  text-shadow: 4px -1px 6px rgba(0,0,0,0.49);
+}
+
+
+@keyframes anim-lineUp {
+  0% {
+    opacity: 0;
+    transform: translateY(80%);
+  }
+  20% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+}
+
+
+#top {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 20px;
+  margin-top: 20px;
+  margin-right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.waviy {
+  position: relative;
+  -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0,0,0,.2));
+  font-size: 20px;
+}
+.waviy span {
+  font-family: 'Alfa Slab One', cursive;
+  position: relative;
+  display: inline-block;
+  color: #131313;
+  text-transform: uppercase;
+  animation: waviy 1s ;
+  animation-delay: calc(.1s * var(--i));
+}
+
+@keyframes waviy {
+  0%,40%,100% {
+    transform: translateY(0)
+  }
+  20% {
+    transform: translateY(-20px)
   }
 }
